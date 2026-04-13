@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DocuGlobal | Asistencia documental y gestión administrativa internacional</title>
+  <meta name="description" content="DocuGlobal SpA brinda asistencia documental, preparación de expedientes y apoyo en trámites administrativos nacionales e internacionales para personas y empresas." />
+  <style>
+    :root {
+      --primary: #b91c1c;
+      --primary-2: #dc2626;
+      --accent: #f59e0b;
+      --accent-soft: #fde68a;
+      --surface: #ffffff;
+      --surface-soft: #fff8f1;
+      --text: #111827;
+      --muted: #6b7280;
+      --dark: #140f0f;
+      --dark-2: #231313;
+      --line: #f1dfbc;
+      --line-dark: rgba(255,255,255,0.12);
+      --success: #166534;
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --shadow-lg: 0 24px 70px rgba(0,0,0,0.24);
+      --shadow-md: 0 14px 34px rgba(17,24,39,0.08);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--surface-soft);
+      line-height: 1.55;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(20, 15, 15, 0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      font-weight: 800;
+      font-size: 1.45rem;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      filter: drop-shadow(0 8px 16px rgba(185, 28, 28, 0.18));
+    }
+
+    .brand-mark svg { width: 100%; height: 100%; display: block; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.86);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 0.96rem;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 0;
+      cursor: pointer;
+      transition: 0.18s ease;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-logo {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 58%, var(--accent) 100%);
+      color: white;
+      box-shadow: 0 14px 30px rgba(185, 28, 28, 0.26);
+    }
+
+    .btn-logo:hover {
+      box-shadow: 0 18px 38px rgba(185, 28, 28, 0.30);
+      filter: saturate(1.05);
+    }
+
+    .btn-light {
+      background: rgba(255,255,255,0.1);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--primary);
+      box-shadow: 0 14px 30px rgba(255,255,255,0.14);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(245, 158, 11, 0.18), transparent 24%),
+        radial-gradient(circle at 86% 16%, rgba(220, 38, 38, 0.32), transparent 24%),
+        linear-gradient(135deg, #120f0f 0%, #2c1010 30%, #6d1414 70%, #a91e1e 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 620px;
+      height: 620px;
+      right: -180px;
+      bottom: -180px;
+      background: radial-gradient(circle, rgba(245,158,11,0.18) 0%, rgba(245,158,11,0.04) 46%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      min-height: calc(100vh - 78px);
+      padding: 52px 0 72px;
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.95);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 14px rgba(245,158,11,0.9);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(3.1rem, 6vw, 5.35rem);
+      line-height: 0.95;
+      letter-spacing: -0.065em;
+      max-width: 760px;
+    }
+
+    .hero h1 .highlight {
+      color: #ffe7b5;
+    }
+
+    .hero p {
+      margin: 24px 0 0;
+      max-width: 660px;
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.84);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.92);
+      font-size: 0.92rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dashboard {
+      width: min(100%, 640px);
+      background: rgba(255,255,255,0.97);
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      transform: perspective(1400px) rotateY(-8deg) rotateX(4deg);
+    }
+
+    .dash-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 18px;
+      background: linear-gradient(90deg, #fff 0%, #fff3df 100%);
+      border-bottom: 1px solid rgba(17,24,39,0.08);
+    }
+
+    .dash-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .dash-brand .mini {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+
+    .dash-status {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #fff1cf;
+      color: #92400e;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .dash-body {
+      padding: 20px;
+      background: linear-gradient(180deg, #ffffff 0%, #fffbf6 100%);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .stat-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 12px 20px rgba(17,24,39,0.04);
+    }
+
+    .stat-card small {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-size: 0.8rem;
+    }
+
+    .stat-card strong {
+      font-size: 1.24rem;
+      letter-spacing: -0.03em;
+    }
+
+    .graph-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px;
+    }
+
+    .graph-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .graph {
+      display: flex;
+      align-items: end;
+      gap: 10px;
+      height: 220px;
+    }
+
+    .bar {
+      flex: 1;
+      min-width: 14px;
+      border-radius: 999px 999px 10px 10px;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--primary) 100%);
+    }
+
+    .phone-card {
+      position: absolute;
+      right: -6px;
+      bottom: 14px;
+      width: 230px;
+      background: #0f1720;
+      border: 4px solid #111;
+      border-radius: 34px;
+      padding: 12px;
+      box-shadow: 0 28px 56px rgba(0,0,0,0.30);
+    }
+
+    .phone-screen {
+      min-height: 420px;
+      border-radius: 24px;
+      padding: 16px 14px;
+      background: #fffaf1;
+    }
+
+    .wa-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    .wa-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+    }
+
+    .chat-bubble {
+      max-width: 92%;
+      padding: 10px 12px;
+      border-radius: 16px;
+      font-size: 0.86rem;
+      margin-bottom: 10px;
+    }
+
+    .chat-left {
+      background: white;
+      border: 1px solid #f0e0b8;
+      color: var(--text);
+    }
+
+    .chat-right {
+      margin-left: auto;
+      background: #fee2e2;
+      border: 1px solid #fecaca;
+      color: #7f1d1d;
+    }
+
+    .section { padding: 88px 0; }
+    .section-white { background: white; }
+    .section-soft { background: var(--surface-soft); }
+    .section-dark { background: linear-gradient(180deg, #1b1111 0%, #130f0f 100%); color: white; }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      background: #fff1cf;
+      color: #92400e;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.86rem;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+    }
+
+    .section-head p {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    .section-dark .section-head p { color: rgba(255,255,255,0.72); }
+
+    .grid-3, .grid-4 {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff4da;
+      color: #92400e;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.18rem;
+      letter-spacing: -0.03em;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
+    .card ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+    }
+
+    .steps .card {
+      position: relative;
+      padding-top: 56px;
+    }
+
+    .step-number {
+      position: absolute;
+      top: 18px;
+      left: 20px;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 12px 22px rgba(185, 28, 28, 0.22);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .metric {
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.05em;
+      color: #ffe7b5;
+    }
+
+    .metric span {
+      color: rgba(255,255,255,0.76);
+    }
+
+    .legal-box {
+      border-radius: 28px;
+      padding: 28px;
+      background: linear-gradient(135deg, #fff 0%, #fff9ef 100%);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-md);
+    }
+
+    .legal-box p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .cta-panel {
+      border-radius: 30px;
+      padding: 34px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      background: linear-gradient(135deg, #7f1d1d 0%, #b91c1c 58%, #f59e0b 100%);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cta-panel h3 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      letter-spacing: -0.05em;
+    }
+
+    .cta-panel p {
+      margin: 0;
+      color: rgba(255,255,255,0.88);
+      max-width: 680px;
+    }
+
+    .legal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .legal-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .legal-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.18rem;
+      letter-spacing: -0.03em;
+    }
+
+    .legal-card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .legal-card .btn {
+      width: 100%;
+    }
+
+    .legal-page {
+      margin-top: 28px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--shadow-md);
+      scroll-margin-top: 100px;
+    }
+
+    .legal-page h3 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      letter-spacing: -0.04em;
+    }
+
+    .legal-meta {
+      margin-bottom: 20px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .legal-page h4 {
+      margin: 28px 0 10px;
+      font-size: 1.08rem;
+      letter-spacing: -0.02em;
+    }
+
+    .legal-page p,
+    .legal-page li {
+      color: var(--muted);
+    }
+
+    .legal-page ul {
+      padding-left: 20px;
+      margin: 10px 0 0;
+    }
+
+    footer {
+      background: #130f0f;
+      color: white;
+      padding: 46px 0 54px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .footer-brand {
+      max-width: 620px;
+    }
+
+    .footer-brand p {
+      margin: 10px 0 0;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: flex-end;
+    }
+
+    .footer-links a {
+      color: #fde68a;
+      font-weight: 700;
+    }
+
+    .footer-bottom {
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.66);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-inner,
+      .grid-3,
+      .grid-4,
+      .metrics,
+      .legal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        min-height: auto;
+        padding: 44px 0 66px;
+      }
+
+      .hero-visual {
+        min-height: auto;
+        order: -1;
+      }
+
+      .dashboard { transform: none; }
+
+      .phone-card {
+        right: 10px;
+        bottom: -20px;
+      }
+
+      .cta-panel {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav { min-height: 72px; }
+      .nav-links { display: none; }
+      .hero h1 { font-size: 3rem; }
+      .hero p { font-size: 1.05rem; }
+      .stats { grid-template-columns: 1fr; }
+      .phone-card {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: 270px;
+        margin: 18px auto 0;
+      }
+      .section { padding: 70px 0; }
+      .footer-top { flex-direction: column; }
+      .footer-links { justify-content: flex-start; }
+      .legal-page { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <span class="brand-mark">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="60" cy="60" r="58" fill="white" stroke="#b91c1c" stroke-width="4"/>
+            <path d="M38 35C42 30 50 30 52 35C54 40 50 45 48 50C46 55 44 60 42 65C40 70 36 68 34 63C32 58 34 50 36 45C38 40 36 38 38 35Z" fill="#b91c1c"/>
+            <path d="M60 35C65 30 72 32 74 36C76 40 72 44 70 48C68 52 66 58 68 62C70 66 66 70 62 68C58 66 56 60 56 55C56 50 58 45 60 40C62 37 58 37 60 35Z" fill="#b91c1c"/>
+            <path d="M75 40C80 38 85 42 88 45C91 48 90 54 86 56C82 58 78 55 76 52C74 49 72 42 75 40Z" fill="#b91c1c"/>
+            <ellipse cx="85" cy="75" rx="6" ry="4" fill="#b91c1c"/>
+          </svg>
+        </span>
+        <span>DocuGlobal</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#empresa">Empresa</a>
+        
+        <a href="https://wa.me/56951456698?text=Hola%20DocuGlobal%2C%20quiero%20agendar%20una%20evaluaci%C3%B3n" target="_blank" rel="noopener" class="btn btn-logo">Agenda por WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="container hero-inner">
+        <div>
+          <div class="eyebrow">
+            <span class="dot"></span>
+            <span>Asistencia documental y gestión administrativa internacional</span>
+          </div>
+          <h1>Ordenamos tus <span class="highlight">trámites y documentos</span> para que avances con claridad.</h1>
+          <p>
+            DocuGlobal ayuda a personas y empresas a preparar expedientes, revisar formularios y estructurar documentación para procesos administrativos en Chile y en el extranjero, con una experiencia simple, rápida y profesional.
+          </p>
+          <div class="hero-actions">
+            <a href="https://wa.me/56951456698?text=Hola%20DocuGlobal%2C%20quiero%20agendar%20una%20evaluaci%C3%B3n" target="_blank" rel="noopener" class="btn btn-logo">Escríbenos por WhatsApp</a>
+            <a href="#servicios" class="btn btn-light">Ver cómo trabajamos</a>
+          </div>
+          <div class="hero-trust">
+            <span class="trust-pill">DocuGlobal SpA · Las Condes, Chile</span>
+            <span class="trust-pill">Atención remota para Chile, España y USA</span>
+            <span class="trust-pill">No prestamos servicios jurídicos reservados</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="dashboard">
+            <div class="dash-top">
+              <div class="dash-brand"><span class="mini"></span> Panel DocuGlobal</div>
+              <div class="dash-status">Expediente en revisión</div>
+            </div>
+            <div class="dash-body">
+              <div class="stats">
+                <div class="stat-card">
+                  <small>Documentos organizados</small>
+                  <strong>126</strong>
+                </div>
+                <div class="stat-card">
+                  <small>Formularios revisados</small>
+                  <strong>48</strong>
+                </div>
+                <div class="stat-card">
+                  <small>Casos activos</small>
+                  <strong>18</strong>
+                </div>
+              </div>
+              <div class="graph-card">
+                <div class="graph-head">
+                  <strong>Avance de preparación documental</strong>
+                  <span class="dash-status">Actualizado hoy</span>
+                </div>
+                <div class="graph">
+                  <div class="bar" style="height: 42%;"></div>
+                  <div class="bar" style="height: 58%;"></div>
+                  <div class="bar" style="height: 38%;"></div>
+                  <div class="bar" style="height: 74%;"></div>
+                  <div class="bar" style="height: 64%;"></div>
+                  <div class="bar" style="height: 82%;"></div>
+                  <div class="bar" style="height: 54%;"></div>
+                  <div class="bar" style="height: 70%;"></div>
+                  <div class="bar" style="height: 91%;"></div>
+                  <div class="bar" style="height: 78%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="phone-card">
+            <div class="phone-screen">
+              <div class="wa-head"><span class="wa-avatar"></span> WhatsApp DocuGlobal</div>
+              <div class="chat-bubble chat-left">Hola, tengo pasaporte, NIE y contrato. ¿Qué me falta para avanzar?</div>
+              <div class="chat-bubble chat-right">Te ayudamos a revisar el expediente, ordenar respaldos y verificar qué formularios o documentos faltan.</div>
+              <div class="chat-bubble chat-left">¿Pueden revisar la documentación antes de enviarla?</div>
+              <div class="chat-bubble chat-right">Sí. Preparamos, organizamos y revisamos tus documentos con un checklist claro y acompañamiento remoto.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Por qué DocuGlobal</span>
+          <h2>Más orden, menos fricción y una experiencia clara desde el primer contacto.</h2>
+          <p>Convertimos procesos documentales complejos en un flujo entendible, profesional y orientado a que avances con tranquilidad.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <div class="card-badge">Claridad</div>
+            <h3>Checklist y pasos concretos</h3>
+            <p>Te indicamos qué documentos reunir, cómo ordenarlos y qué revisar antes de seguir avanzando.</p>
+          </article>
+          <article class="card">
+            <div class="card-badge">Velocidad</div>
+            <h3>Atención remota y directa</h3>
+            <p>Coordinamos el proceso por canales digitales para que puedas avanzar sin depender de reuniones complejas o presenciales.</p>
+          </article>
+          <article class="card">
+            <div class="card-badge">Confianza</div>
+            <h3>Presentación profesional</h3>
+            <p>Estructuramos tu documentación de forma ordenada para reducir errores, vacíos e inconsistencias administrativas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="servicios">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Servicios</span>
+          <h2>Asistencia documental y administrativa para personas y empresas.</h2>
+          <p>DocuGlobal presta servicios de consultoría y asesoría administrativa, asistencia documental y apoyo en gestión de trámites administrativos nacionales e internacionales.</p>
+        </div>
+        <div class="grid-4">
+          <article class="card">
+            <div class="card-badge">Preparación</div>
+            <h3>Expedientes documentales</h3>
+            <p>Organizamos requisitos, respaldos y archivos para procesos administrativos con una estructura clara y ordenada.</p>
+          </article>
+          <article class="card">
+            <div class="card-badge">Revisión</div>
+            <h3>Formularios y documentación</h3>
+            <p>Verificamos coherencia, completitud y consistencia antes de la presentación o entrega de antecedentes.</p>
+          </article>
+          <article class="card">
+            <div class="card-badge">Gestión</div>
+            <h3>Apoyo administrativo</h3>
+            <p>Acompañamos procesos documentales para personas naturales y jurídicas con foco en orden y seguimiento.</p>
+          </article>
+          <article class="card">
+            <div class="card-badge">Digital</div>
+            <h3>Consultoría y servicios complementarios</h3>
+            <p>Incluimos gestión documental, capacitaciones y otros servicios vinculados al giro de la empresa.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Valor</span>
+          <h2>Diseñado para dar seguridad en procesos donde el detalle importa.</h2>
+          <p>DocuGlobal funciona como una capa de orden y acompañamiento para trámites que requieren estructura, respaldo y presentación cuidada.</p>
+        </div>
+        <div class="metrics">
+          <div class="metric">
+            <strong>Checklist claro</strong>
+            <span>Sabrás qué documentos faltan, cuáles revisar y cómo preparar cada etapa del proceso.</span>
+          </div>
+          <div class="metric">
+            <strong>Atención remota</strong>
+            <span>Trabajamos por canales digitales para acompañarte desde cualquier lugar, en Chile o en el extranjero.</span>
+          </div>
+          <div class="metric">
+            <strong>Proceso ordenado</strong>
+            <span>Menos confusión, menos retrabajo y una presentación documental más consistente.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="como-funciona">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Cómo funciona</span>
+          <h2>Una metodología simple, premium y fácil de seguir.</h2>
+          <p>Nos enfocamos en convertir un proceso complejo en pasos concretos para que avances con seguridad.</p>
+        </div>
+        <div class="grid-4 steps">
+          <article class="card">
+            <span class="step-number">1</span>
+            <h3>Diagnóstico inicial</h3>
+            <p>Revisamos el tipo de trámite, el estado del caso y la documentación disponible.</p>
+          </article>
+          <article class="card">
+            <span class="step-number">2</span>
+            <h3>Checklist y orden</h3>
+            <p>Definimos los requisitos y ordenamos la información para evitar vacíos o duplicidades.</p>
+          </article>
+          <article class="card">
+            <span class="step-number">3</span>
+            <h3>Revisión y preparación</h3>
+            <p>Validamos formularios, respaldos y estructura documental antes del siguiente paso.</p>
+          </article>
+          <article class="card">
+            <span class="step-number">4</span>
+            <h3>Entrega y acompañamiento</h3>
+            <p>Recibes tu expediente ordenado junto con una guía clara para continuar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="empresa">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Empresa</span>
+          <h2>Una base societaria clara y un giro alineado a la operación real de DocuGlobal.</h2>
+          <p>Presentación corporativa consistente con la razón social y el objeto de la empresa.</p>
+        </div>
+        <div class="legal-box">
+          <p>
+            <strong>DocuGlobal SpA</strong> es una sociedad por acciones constituida el 05 de marzo de 2026, con domicilio en la comuna de <strong>Las Condes, Región Metropolitana de Santiago, Chile</strong>, y duración indefinida. Su objeto comprende la prestación de servicios de consultoría y asesoría administrativa, asistencia documental y apoyo en la gestión de trámites administrativos para personas naturales y jurídicas, incluyendo la preparación, organización y revisión de formularios y documentación necesaria para distintos procesos administrativos nacionales o internacionales. La sociedad no presta servicios jurídicos reservados a abogados y puede operar en Chile y en el extranjero.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="contacto">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <h3>¿Listo para ordenar tu proceso?</h3>
+            <p>Escríbenos por WhatsApp y revisemos tu caso, tus documentos disponibles y los próximos pasos para avanzar con más claridad.</p>
+          </div>
+          <div class="hero-actions" style="margin-top:0;">
+            <a href="https://wa.me/56951456698?text=Hola%20DocuGlobal%2C%20quiero%20revisar%20mi%20caso" target="_blank" rel="noopener" class="btn btn-white">WhatsApp +56 9 5145 6698</a>
+            <a href="mailto:contacto@docuglobal.cl" class="btn btn-light">contacto@docuglobal.cl</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand">
+            <span class="brand-mark">
+              <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="60" cy="60" r="58" fill="white" stroke="#b91c1c" stroke-width="4"/>
+                <path d="M38 35C42 30 50 30 52 35C54 40 50 45 48 50C46 55 44 60 42 65C40 70 36 68 34 63C32 58 34 50 36 45C38 40 36 38 38 35Z" fill="#b91c1c"/>
+                <path d="M60 35C65 30 72 32 74 36C76 40 72 44 70 48C68 52 66 58 68 62C70 66 66 70 62 68C58 66 56 60 56 55C56 50 58 45 60 40C62 37 58 37 60 35Z" fill="#b91c1c"/>
+                <path d="M75 40C80 38 85 42 88 45C91 48 90 54 86 56C82 58 78 55 76 52C74 49 72 42 75 40Z" fill="#b91c1c"/>
+                <ellipse cx="85" cy="75" rx="6" ry="4" fill="#b91c1c"/>
+              </svg>
+            </span>
+            <span>DocuGlobal</span>
+          </div>
+          <p>Servicios de consultoría y asesoría administrativa, asistencia documental y apoyo en gestión de trámites administrativos para personas naturales y jurídicas.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/terminos.html">Términos y Condiciones</a>
+          <a href="/privacidad.html">Política de Privacidad</a>
+          <a href="/cookies.html">Política de Cookies</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        DocuGlobal SpA · Las Condes, Región Metropolitana de Santiago, Chile · WhatsApp oficial: +56 9 5145 6698 · La empresa no presta servicios jurídicos reservados a abogados.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
