@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.svg">
   <title>DocuGlobal | Asistencia documental y gestión administrativa internacional</title>
   <meta name="description" content="DocuGlobal SpA brinda asistencia documental, preparación de expedientes y apoyo en trámites administrativos nacionales e internacionales para personas y empresas." />
   <style>
@@ -717,25 +719,315 @@
       }
     }
 
-    @media (max-width: 760px) {
-      .nav { min-height: 72px; }
-      .nav-links { display: none; }
-      .hero h1 { font-size: 3rem; }
-      .hero p { font-size: 1.05rem; }
-      .stats { grid-template-columns: 1fr; }
-      .phone-card {
-        position: relative;
-        right: auto;
-        bottom: auto;
-        width: 100%;
-        max-width: 270px;
-        margin: 18px auto 0;
-      }
-      .section { padding: 70px 0; }
-      .footer-top { flex-direction: column; }
-      .footer-links { justify-content: flex-start; }
-      .legal-page { padding: 22px; }
-    }
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 84px;
+  }
+
+  body {
+    padding-bottom: 84px;
+  }
+
+  .container {
+    width: calc(100% - 24px);
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+  }
+
+  .nav {
+    min-height: 70px;
+  }
+
+  .brand {
+    font-size: 1.1rem;
+    gap: 10px;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    min-height: auto;
+    padding: 24px 0 44px;
+  }
+
+  .eyebrow {
+    font-size: 0.82rem;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-size: 2.45rem;
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+  }
+
+  .hero p {
+    font-size: 0.98rem;
+    margin-top: 16px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    padding: 14px 16px;
+  }
+
+  .hero-trust {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .trust-pill {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.87rem;
+  }
+
+  .hero-visual {
+    min-height: auto;
+    padding-top: 0;
+  }
+
+  .dashboard {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 22px;
+    transform: none;
+  }
+
+  .dash-top {
+    padding: 14px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dash-body {
+    padding: 14px;
+  }
+
+  .dash-brand {
+    font-size: 0.92rem;
+  }
+
+  .dash-status {
+    font-size: 0.74rem;
+    padding: 6px 10px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .stat-card {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .stat-card strong {
+    font-size: 1.08rem;
+  }
+
+  .graph-card {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .graph-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .graph {
+    height: 150px;
+    gap: 7px;
+  }
+
+  .phone-card {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 12px;
+    border-radius: 24px;
+    padding: 10px;
+  }
+
+  .phone-screen {
+    min-height: auto;
+    padding: 14px 12px;
+    border-radius: 18px;
+  }
+
+  .chat-bubble {
+    font-size: 0.82rem;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  .section-head {
+    margin-bottom: 22px;
+  }
+
+  .section-kicker {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    line-height: 1.04;
+  }
+
+  .section-head p {
+    font-size: 0.97rem;
+  }
+
+  .grid-3,
+  .grid-4,
+  .metrics {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card,
+  .legal-box,
+  .metric {
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .card h3 {
+    font-size: 1.06rem;
+  }
+
+  .steps .card {
+    padding-top: 50px;
+  }
+
+  .step-number {
+    top: 16px;
+    left: 16px;
+  }
+
+  .metric strong {
+    font-size: 1.5rem;
+  }
+
+  .cta-panel {
+    padding: 22px 18px;
+    border-radius: 22px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .cta-panel h3 {
+    font-size: 1.55rem;
+  }
+
+  .cta-panel .hero-actions {
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .cta-panel .hero-actions .btn {
+    width: 100%;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .footer-links a {
+    width: 100%;
+  }
+
+  .footer-bottom {
+    font-size: 0.86rem;
+    line-height: 1.55;
+  }
+
+  .mobile-nav {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(17, 24, 39, 0.08);
+    box-shadow: 0 16px 40px rgba(17, 24, 39, 0.16);
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    padding: 6px;
+    z-index: 9999;
+  }
+
+  .mobile-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 52px;
+    border-radius: 16px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #6b7280;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .mobile-nav a:hover,
+  .mobile-nav a:active {
+    background: #fff4da;
+    color: #b91c1c;
+  }
+
+  .mobile-nav a.whatsapp-tab {
+    background: linear-gradient(135deg, #b91c1c 0%, #dc2626 58%, #f59e0b 100%);
+    color: white;
+    box-shadow: 0 10px 20px rgba(185, 28, 28, 0.22);
+  }
+}
+
   </style>
 </head>
 <body>
@@ -979,8 +1271,7 @@
             <p>Escríbenos por WhatsApp y revisemos tu caso, tus documentos disponibles y los próximos pasos para avanzar con más claridad.</p>
           </div>
           <div class="hero-actions" style="margin-top:0;">
-            <a href="https://wa.me/56951456698?text=Hola%20DocuGlobal%2C%20quiero%20revisar%20mi%20caso" target="_blank" rel="noopener" class="btn btn-white">WhatsApp +56 9 5145 6698</a>
-            <a href="mailto:contacto@docuglobal.cl" class="btn btn-light">contacto@docuglobal.cl</a>
+<a href="https://wa.me/56951456698?text=Hola%20DocuGlobal%2C%20quiero%20revisar%20mi%20caso" target="_blank" rel="noopener" class="btn btn-white">Escríbenos por WhatsApp</a>            <a href="mailto:contacto@docuglobal.cl" class="btn btn-light">contacto@docuglobal.cl</a>
           </div>
         </div>
       </div>
@@ -1016,5 +1307,11 @@
       </div>
     </div>
   </footer>
+ <div class="mobile-nav">
+  <a href="#top">Inicio</a>
+  <a href="#servicios">Servicios</a>
+  <a href="https://wa.me/56951456698?text=Hola%20DocuGlobal%2C%20quiero%20agendar%20una%20evaluaci%C3%B3n" target="_blank" rel="noopener" class="whatsapp-tab">WhatsApp</a>
+  <a href="#contacto">Contacto</a>
+</div>
 </body>
 </html>
